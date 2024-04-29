@@ -1,9 +1,7 @@
 using System;
 
-class Program
-{
-    static void Main(string[] args)
-    {
+class Program {
+    static void Main(string[] args) {
         Console.Write("Enter your grade: ");
         string gradeInput = Console.ReadLine();
         int realGrade = int.Parse(gradeInput);
