@@ -17,6 +17,19 @@
         },
 
         {
+            "name": "Dice Distribution",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-DiceDistribution",
+            "program": "${workspaceFolder}/sandbox/DiceDistribution/bin/Debug/net8.0/DiceDistribution.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/DiceDistribution",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
             "name": "C# Prep 1",
             "type": "coreclr",
             "request": "launch",
