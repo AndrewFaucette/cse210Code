@@ -3,7 +3,7 @@ public class resume {
     public List<job> _jobs = new List<job>();
 
     public void displayResume(){
-        Console.WriteLine(_name);
+        Console.WriteLine($"Name: {_name}\nJobs:");
         foreach (job j in _jobs){
             j.DisplayInfo();
         }
