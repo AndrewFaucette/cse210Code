@@ -1,4 +1,4 @@
-public class job {
+public class Job {
     public string _company = "";
     public string _jobTitle = "";
     public int _startYear = 0;
