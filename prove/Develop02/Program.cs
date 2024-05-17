@@ -17,11 +17,12 @@ class Program
             } else if (menuOption == "2"){
                 journal1.displayJournal();
             } else if (menuOption == "3"){
-                //save journal
+                journal1.saveToFile();
             } else if (menuOption == "4"){
-                //load journal
+                journal1.loadFromFile();
             } else if (menuOption == "5"){
-                //load journal and exit
+                journal1.saveToFile();
+                Console.WriteLine("bye");
             } else {
                 Console.WriteLine("That was not a correct input");
             }
