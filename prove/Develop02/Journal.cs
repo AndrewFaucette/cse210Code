@@ -26,7 +26,7 @@ public class Journal {
 
     public String displayMenu(){
         Console.WriteLine("Choose an option (enter a number 1-4)");
-        Console.WriteLine("1. Write a new entry\n2. Display the Journal\n3. Save the journal to a file");
+        Console.Write("1. Write a new entry 2. Display the Journal\n3. Save the journal to a file ");
         Console.WriteLine("4. Load the journal from a file\n5. quit the program (will load to file)");
         String choice = Console.ReadLine();
         return choice;        
