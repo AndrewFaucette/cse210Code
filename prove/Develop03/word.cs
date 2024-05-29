@@ -1,5 +1,6 @@
 public class Word{
     private bool _visible = true;
+    private bool _isNumber = false;
     private string _text;
     //private int _length = _text.Length;
 
@@ -18,6 +19,9 @@ public class Word{
 
     public bool GetVisible(){ return _visible; }
     public void SetVisible(bool visible){ _visible = visible; }
+
+    public bool GetIsNumber(){ return _isNumber; }
+    public void SetIsNumber(bool isNumber){ _isNumber = isNumber; }
 
     public string GetText(){ return _text; }
     public void SetText(string text){ _text = text; }
