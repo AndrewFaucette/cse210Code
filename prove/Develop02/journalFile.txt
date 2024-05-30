@@ -1,2 +1,3 @@
 5/20/2024 12:03:02 PM@@What was your favorite part of today?@@entry
 5/20/2024 12:08:10 PM@@What did you learn today?@@something
+5/30/2024 10:23:57 AM@@What was the worst part of your day?@@bugs in my code

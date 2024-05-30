@@ -8,7 +8,9 @@ public class Word{
         _visible = false;
     }
     public void displayWord(){
-        if (_visible == true){
+        if (_isNumber == true){
+            Console.Write($"\n{_text}");
+        } else if (_visible == true){
             Console.Write(_text);
         } else {
             for (int i = 0; i < _text.Length; i++){

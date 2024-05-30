@@ -33,15 +33,15 @@ public class Journal {
     }
 
     public void saveToFile(){
-        using (StreamWriter outputFile = new StreamWriter("journalFile.txt")){
-            foreach (Entry e in _entries){
-                outputFile.WriteLine($"{e._entryDate}@@{e._prompt}@@{e._entryText}");
-            }
+        List<string> loadingJournal = new List<string>();
+        foreach (Entry e in _entries){
+            loadingJournal.Add($"{e._entryDate}@@{e._prompt}@@{e._entryText}");
         }
+        System.IO.File.WriteAllLines(@"C:\Users\Owner\Documents\2024 Spring\cse210Code\prove\Develop02\journalFile.txt", loadingJournal);
     }
 
     public void loadFromFile(){
-        string[] lines = System.IO.File.ReadAllLines("journalFile.txt");
+        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Owner\Documents\2024 Spring\cse210Code\prove\Develop02\journalFile.txt");
         foreach (string line in lines){
             string[] parts = line.Split("@@");
             Entry e = new Entry();
