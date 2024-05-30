@@ -5,9 +5,11 @@ public class Scripture{
     private Reference reference = new Reference();
     
     public void splitScripture(string fullScript){
-        string[] words = fullScript.Split(' ');
+        List<string> words = new List<string>(fullScript.Split(' '));
         reference.SetReference(words[0]+" "+words[1]);
-        for(int i = 2; i < words.Length; i++){
+        words.RemoveAt(0);
+        words.RemoveAt(0);
+        for(int i = 0; i < words.Count; i++){
             Word word = new Word();
             word.SetText(words[i]);
             if (int.TryParse(words[i], out _) == true){
@@ -20,9 +22,23 @@ public class Scripture{
     }
     public void removeRandomWord(){
         Random random = new Random();
-        int index = _remainingWords[random.Next(2,_remainingWords.Count)];
-        _words[index].hide();
+        int index = random.Next(0,_remainingWords.Count);
+        int hider = _remainingWords[index];
+        _words[hider].hide();
         _remainingWords.RemoveAt(index);
+    }
+    public void menu(){
+        string input = "";
+        do{
+            input = Console.ReadLine();
+            if (_remainingWords.Count >2){
+                for(int i=0; i < 3; i++){removeRandomWord();}
+            } else {
+                for(int i=0; i < _remainingWords.Count; i++){removeRandomWord();}
+            }
+            displayScripture();
+            Console.WriteLine("\nPress enter to continue or type \"quit\" to quit");
+        }while (input != "quit");
     }
     public void displayScripture(){
         Console.Clear();
