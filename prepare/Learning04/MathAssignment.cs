@@ -7,7 +7,7 @@ public class MathAssignment : Assignment{
     }
 
     public string getHomework(){
-        GetSummary();
+        Console.WriteLine(GetSummary());
         return $"{_textbookSection}, {_problems}";
     }
 }
