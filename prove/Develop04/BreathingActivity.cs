@@ -8,7 +8,7 @@ public class BreathingActivity : Activity{
     public void performActivity(){
         int time = activityIntroduction(_intro);
         for(int i = time; i>0;){
-            Console.Write("\n\nBreath in ");
+            Console.Write("\nBreath in ");
             for(int j = 5; j>0; j--){
                 if(i==0){ break; }
                 Console.Write($"{j}\b");
@@ -22,7 +22,6 @@ public class BreathingActivity : Activity{
                 Thread.Sleep(1000);
                 i--;
             }
-            Console.Write(" ");
         }
         activityOutro();
     }

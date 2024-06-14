@@ -10,15 +10,25 @@ public class ReflectionActivity : Activity{
         int time = activityIntroduction(_intro);
         Random random = new Random();
         while(time > 0){
-            int prompt = random.Next(0,prompts.Count());
-            Console.WriteLine($"\nThink of a time when you {prompts[prompt]}");
-            loadingBar(6);
-            time -= 6;
-            if (time < 1){ break; }
-            int question = random.Next(0,questions.Count());
-            Console.WriteLine($"{questions[question]}");
-            loadingBar(10);
-            time -= 10;
+            if (time > 15){
+                int prompt = random.Next(0,prompts.Count());
+                Console.WriteLine($"\nThink of a time when you {prompts[prompt]}");
+                loadingBar(6);
+                time -= 6;
+                int question = random.Next(0,questions.Count());
+                Console.WriteLine($"{questions[question]}");
+                loadingBar(10);
+                time -= 10;
+            } else if (time > 7) {
+                int prompt = random.Next(0,prompts.Count());
+                Console.WriteLine($"\nThink of a time when you {prompts[prompt]}");
+                loadingBar(time/2);
+                int question = random.Next(0,questions.Count());
+                Console.WriteLine($"{questions[question]}");
+                loadingBar(time-(time/2));
+                break;
+            } else { break; }
         }
+        activityOutro();
     }
 }

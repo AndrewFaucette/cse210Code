@@ -14,7 +14,8 @@ public class Activity{
     }
 
     public void activityOutro(){
-        Console.WriteLine($"\n\nWell done!\nYou have completed another {time} seconds of the {_name} Activity.");
+        Console.WriteLine($"\nWell done!\nYou have completed another {time} seconds of the {_name} Activity.");
+        loadingBar(4);
     }
     public void loadingBar(int delay){
         for(int i=0; i < delay; i++){
