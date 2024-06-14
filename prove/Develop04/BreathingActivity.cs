@@ -5,7 +5,7 @@ public class BreathingActivity : Activity{
 
     }
 
-    public void performActivity(){
+    public bool performActivity(){
         int time = activityIntroduction(_intro);
         for(int i = time; i>0;){
             Console.Write("\nBreath in ");
@@ -23,6 +23,6 @@ public class BreathingActivity : Activity{
                 i--;
             }
         }
-        activityOutro();
+        return activityOutro();
     }
 }

@@ -6,7 +6,7 @@ public class ReflectionActivity : Activity{
 
     }
 
-    public void performActivity(){
+    public bool performActivity(){
         int time = activityIntroduction(_intro);
         Random random = new Random();
         while(time > 0){
@@ -29,6 +29,6 @@ public class ReflectionActivity : Activity{
                 break;
             } else { break; }
         }
-        activityOutro();
+        return activityOutro();
     }
 }

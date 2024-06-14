@@ -11,13 +11,13 @@ class Program
             string menu = Console.ReadLine();
             BreathingActivity breathingActivity = new BreathingActivity("Breathing");
             if (menu == "1"){
-                breathingActivity.performActivity();
+                while (breathingActivity.performActivity()){}
             } else if (menu == "2") {
                 ReflectionActivity reflectionActivity = new ReflectionActivity("Reflection");
-                reflectionActivity.performActivity();
+                while (reflectionActivity.performActivity()){}
             } else if (menu == "3") {
                 ListingActivity listingActivity = new ListingActivity("Listing");
-                listingActivity.performActivity();
+                while (listingActivity.performActivity()){}
             } else if (menu == "4") {
                 break;
             } else {

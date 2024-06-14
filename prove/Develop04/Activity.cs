@@ -13,9 +13,20 @@ public class Activity{
         return time;
     }
 
-    public void activityOutro(){
+    public bool activityOutro(){
         Console.WriteLine($"\nWell done!\nYou have completed another {time} seconds of the {_name} Activity.");
-        loadingBar(4);
+        Console.Write($"Would you like to do another {_name} Activity? (y/n) ");
+        string answer = Console.ReadLine();
+        while(true){
+            if ((answer == "y") || (answer == "Y")){
+                return true;
+            } else if ((answer == "n") || (answer == "N")){
+                return false;
+            } else {
+                Console.WriteLine("That is not a valid input");
+                loadingBar(2);
+            }
+        }
     }
     public void loadingBar(int delay){
         for(int i=0; i < delay; i++){

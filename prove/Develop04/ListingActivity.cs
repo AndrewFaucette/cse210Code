@@ -4,7 +4,7 @@ public class ListingActivity : Activity{
     public ListingActivity(string name) :base(name){
     }
 
-    public void performActivity(){
+    public bool performActivity(){
         int time = activityIntroduction(_intro);
         Random random = new Random();
         Console.WriteLine(prompts[random.Next(0, prompts.Count())]);
@@ -21,6 +21,6 @@ public class ListingActivity : Activity{
             if(startTime > futureTime){break;}
         }
         Console.WriteLine($"You listed {count} things.");
-        activityOutro();
+        return activityOutro();
     }
 }
