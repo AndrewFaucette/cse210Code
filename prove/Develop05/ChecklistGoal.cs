@@ -1,9 +1,9 @@
 public class ChecklistGoal : Goal{
-    private string _description = "This is a Checklist goal where you seta goal to accomplish a certain number of times.";
     private int _number;
-    private int _completed = 0;
-    public ChecklistGoal(string goal, int number) :base(goal){
+    private int _completed;
+    public ChecklistGoal(string goal, int number, int completed) :base(goal){
         _number = number;
+        _completed = completed;
     }
 
     public override int completeGoal(){
@@ -21,5 +21,8 @@ public class ChecklistGoal : Goal{
     }
     public override string displayGoal(){
         return $"{_goal}: completed {_completed}/{_number} times";
+    }
+    public override string saveGoal(){
+        return $"CG@@{_goal}@@{_completed}@@{_number}";
     }
 }

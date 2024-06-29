@@ -9,4 +9,5 @@ public abstract class Goal{
     //public abstract void setGoal();
     public abstract int completeGoal();
     public abstract string displayGoal();
+    public abstract string saveGoal();
 }

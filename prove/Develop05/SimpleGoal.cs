@@ -1,9 +1,8 @@
 public class SimpleGoal : Goal{
-    private string _description = "This is a simple goal that you set once and complete once.";
-    private string _complete = "incomplete";
+    private string _complete;
 
-    public SimpleGoal(string goal) :base(goal){
-    
+    public SimpleGoal(string goal, string complete) :base(goal){
+        _complete = complete;
     }
 
     public override int completeGoal(){
@@ -14,5 +13,8 @@ public class SimpleGoal : Goal{
 
     public override string displayGoal(){
         return $"{_goal}: {_complete}";
+    }
+    public override string saveGoal(){
+        return $"SG@@{_goal}@@{_complete}";
     }
 }

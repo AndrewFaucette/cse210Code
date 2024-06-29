@@ -1,9 +1,8 @@
 public class EternalGoal : Goal{
-    private string _description = "This is a eternal goal that you set once and complete over and over again.";
-    private int _completed = 0;
+    private int _completed;
 
-    public EternalGoal(string goal) :base(goal){
-    
+    public EternalGoal(string goal, int completed) :base(goal){
+        _completed = completed;
     }
 
     public override int completeGoal(){
@@ -15,5 +14,8 @@ public class EternalGoal : Goal{
     }
     public override string displayGoal(){
         return $"{_goal}: completed {_completed} times";
+    }
+    public override string saveGoal(){
+        return $"EG@@{_goal}@@{_completed}";
     }
 }
