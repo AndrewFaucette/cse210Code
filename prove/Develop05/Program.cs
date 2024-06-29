@@ -50,7 +50,16 @@ class Program {
                     int index = Int32.Parse(Console.ReadLine())-1;
                     points += goals[index].completeGoal();
                     } catch (Exception e) {
-                    Console.WriteLine("That isn't a valid input");
+                        Console.WriteLine("That isn't a valid input");
+                    }
+                    if (points%1000 == 0){
+                        for(int i = 0; i<3; i++){
+                            Console.Write("_-.-_");
+                            Thread.Sleep(500);
+                            Console.Write("\b\b\b\b\b\\-o-/");
+                            Thread.Sleep(500);
+                        }
+                        Console.WriteLine();
                     }
                     break;
                 case 4:

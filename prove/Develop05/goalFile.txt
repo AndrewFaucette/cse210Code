@@ -1,4 +1,4 @@
-0
+2000
 SG@@write program@@complete
 EG@@read the scriptures@@2
 CG@@chores@@4@@1
