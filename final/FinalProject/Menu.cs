@@ -15,10 +15,11 @@ public class Menu {
     public void displayEverything(Discard discard, List<Player> players) {
     //display each player's piles, how many cards in their hand, and the discard
     List<int> deck = new List<int>();
+        Console.WriteLine();
         for (int i = 0; i < players.Count(); i++) {
             Console.Write($"{i+1}. ");
             players[i].foot.display(deck);
-            Console.WriteLine($" cards left: {players[i].getHand().Count()}");
+            Console.WriteLine($" cards left: {players[i].getHand().Count()}\nDiscard: ");
         }
         discard.display(discard.getDiscard());
     }

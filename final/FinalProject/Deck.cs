@@ -7,6 +7,7 @@ public class Deck: Pile{
 
     //takes the number of players and adds cards to the deck appropriate for the number of players.
     public void buildDeck(int players){
+        _deck.Clear();
         int decksNeeded = ((19*players)/54)+1;
         for(int i = 1; i<14; i++){
             for(int j = 0; j<decksNeeded*4; j++){
