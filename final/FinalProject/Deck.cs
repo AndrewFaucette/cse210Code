@@ -17,11 +17,13 @@ public class Deck: Pile{
     }
     public void deal(List<Player> players){
         int num = players.Count();
+        //create a list of lists each being one player's hand
         List<List<int>> hands = new List<List<int>>();
         for (int i = 0; i<num; i++){
             List<int> hand = new List<int>();
             hands.Add(hand);
         }
+        //deals a random card from the deck to each player 19 times
         for (int j = 0; j<19; j++){
             foreach (List<int> hand in hands){
                 Random random = new Random();
@@ -30,15 +32,10 @@ public class Deck: Pile{
                 _deck.RemoveAt(index);
             }
         }
+        //organize each players hand
         foreach (Player player in players){
             player.setHand(hands[0], true);
             hands.RemoveAt(0);
         }
     }
-
-    /*public void displayDeck(){
-        foreach (int card in _deck){
-            Console.Write($"{card} ");
-        }
-    }*/
 }

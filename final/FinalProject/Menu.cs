@@ -17,10 +17,11 @@ public class Menu {
     List<int> deck = new List<int>();
         Console.WriteLine();
         for (int i = 0; i < players.Count(); i++) {
-            Console.Write($"{i+1}. ");
+            Console.Write($"{i+1}. piles:");
             players[i].foot.display(deck);
-            Console.WriteLine($" cards left: {players[i].getHand().Count()}\nDiscard: ");
+            Console.WriteLine($" cards left: {players[i].getHand().Count()}");
         }
+        Console.Write("Discard: ");
         discard.display(discard.getDiscard());
     }
 }

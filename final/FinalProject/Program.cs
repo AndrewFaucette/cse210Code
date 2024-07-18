@@ -1,40 +1,46 @@
 using System;
 
 class Program {
+    public static Discard discard = new Discard();
+    public static List<Player> players = new List<Player>();
     static void Main(string[] args) {
-        List<Player> players = new List<Player>();
-        Console.Write("How many players are there? ");
-        int numPlayers = Int32.Parse(Console.ReadLine());
-        for (int i = 0; i<numPlayers; i++){
+        //get the number of real and computer players then put them in a list
+        Console.Write("How many real players are there? ");
+        int numReal = Int32.Parse(Console.ReadLine());
+        Console.Write("How many com players are there? ");
+        int numCom = Int32.Parse(Console.ReadLine());
+        int numPlayers = numReal + numCom;
+        for (int i = 0; i<numReal; i++){
             RealPlayer player = new RealPlayer();
             players.Add(player);
         }
+        for (int i = 0; i<numCom; i++){
+            ComPlayer player = new ComPlayer();
+            players.Add(player);
+        }
+        //build the deck and deal ha hand to each player
         Deck deck = new Deck();
         deck.buildDeck(numPlayers);
         deck.deal(players);
-        Discard discard = new Discard();
-        Menu menu = new Menu();
         int current = 0;
         while (true) {
-            Console.Write("1. play from your hand\n2. view the field\nWhat do you want to do? ");
-            int option = Int32.Parse(Console.ReadLine());
-            switch(option){
-                case 1:
-                    discard.play(players[current%numPlayers].play(), players[current%numPlayers]);
-                    current++;
-                    if (players[current%numPlayers].getHand().Count() < 1) {
-                        Console.WriteLine("Round Over!");
-                        deck.buildDeck(numPlayers);
-                        deck.deal(players);
-                    }
-                    Console.WriteLine($"It is now player {option+1}'s turn");
+            //this series of functions performs each turn
+            bool replay = discard.play(players[current%numPlayers].play(discard.top[0]), players[current%numPlayers]);
+            //if the player who just played has no cards in hand then the round ends and each player gets points
+            if (players[current%numPlayers].getHand().Count() < 1) {
+                Console.WriteLine("Round Over!");
+                for (int i = 0; i<players.Count(); i++){
+                    Console.WriteLine($"Player {i+1} has {players[i].addPoints()} points!");
+                }
+                //reset the game
+                deck.buildDeck(numPlayers);
+                deck.deal(players);
+                current = 1;
                 break;
-                case 2:
-                    menu.displayEverything(discard, players);
-                break;
-                default:
-                    Console.WriteLine("Thats not a valid option");
-                break;
+            } else if (replay) {
+                //except in the case of a swipe move to the next players turn
+                current++;
+                Console.WriteLine($"It is now player {current%numPlayers+1}'s turn");
             }
         }
     }
