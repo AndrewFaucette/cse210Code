@@ -26,6 +26,7 @@ class Program {
         while (true) {
             //this series of functions performs each turn
             bool replay = discard.play(players[current%numPlayers].play(discard.top[0]), players[current%numPlayers]);
+            Thread.Sleep(500);
             //if the player who just played has no cards in hand then the round ends and each player gets points
             if (players[current%numPlayers].getHand().Count() < 1) {
                 Console.WriteLine("Round Over!");
