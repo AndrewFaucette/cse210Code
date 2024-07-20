@@ -14,7 +14,7 @@ public abstract class Player{
     public void setHand(List<int> hand, bool setFoot = false){
         _hand = hand;
         if (setFoot) { foot.setFoot(_hand); }
-            hand.Sort();
+        hand.Sort();
     }
     public int addPoints(){
         //add the remaining cards a player has into their score, 1-9 add their

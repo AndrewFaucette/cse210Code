@@ -2,8 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 public class Deck: Pile{
-    List<int> _deck = new List<int>();
-    List<int> _discard = new List<int>();
+    private List<int> _deck = new List<int>();
 
     //takes the number of players and adds cards to the deck appropriate for the number of players.
     public void buildDeck(int players){
